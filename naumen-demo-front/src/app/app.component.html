@@ -1,0 +1,32 @@
+<nav class="navbar navbar-app navbar-static-top">
+    <div class="container text-center">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="https://github.com/">
+                    <i class="fa fa-github" style="font-size:40px;color: white;"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <app-age-form (nameRequested)="onNameRequested($event)"></app-age-form>
+</div>
+<div class="container section">
+    <div *ngIf="oldest" id="oldest">
+        <h4 class="text-info">The oldest one</h4>
+        <p>
+            The oldest person is <strong>{{oldest.name}}</strong>
+            of age <strong>{{oldest.age}}</strong>
+            who has been requested <strong>{{oldest.requestCount}}</strong>
+            time<ng-container *ngIf="oldest.requestCount != 1">s</ng-container>.
+        </p>
+    </div>
+</div>
+<div class="container section">
+    <div class="center-block">
+        <h4 class="text-primary">Global stats</h4>
+    </div>
+    <app-global-stats [rows]="ages.values()"></app-global-stats>
+</div>

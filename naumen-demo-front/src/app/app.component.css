@@ -1,0 +1,22 @@
+#oldest {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    border-left: 5px solid rgb(62, 123, 194);
+    padding: 3px 10px;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+.navbar-app {
+    background-color: #2670ad;
+}
+
+.navbar-brand {
+    float: right;
+}
+
+.nav > li > a:hover {
+    background-color: #3079b4;
+}

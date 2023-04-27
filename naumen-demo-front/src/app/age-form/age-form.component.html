@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <input type="text" class="form-control"
+        id="name" required name="name" [(ngModel)]="input"
+        placeholder="Enter a name">
+    </div>
+    <button type="submit" class="btn btn-success">Request</button>
+</form>
+<p *ngIf="model && !awaiting" class="output">
+    {{ model.name }} is <b>{{ model.age }}</b> and was requested {{ model.requestCount }} time<ng-container *ngIf="model.requestCount > 1">s</ng-container>.
+</p>
+<p *ngIf="awaiting" class="output loading">Loading...</p>

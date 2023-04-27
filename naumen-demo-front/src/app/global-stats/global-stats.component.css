@@ -1,0 +1,23 @@
+.table {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+tr {
+    transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #e4ebf1;
+}
+
+tr:hover {
+    border-color: 1px solid aliceblue;
+    box-shadow: 0 2px 10px rgb(138, 202, 228);
+}
+
+td, th {
+    padding: 5px;
+    text-align: center;
+}

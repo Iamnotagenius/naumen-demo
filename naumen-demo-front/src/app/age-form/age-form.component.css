@@ -1,0 +1,13 @@
+.output {
+    background-color: #e8fde9;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid #b0f8b4;
+    text-align: center;
+}
+
+.output.loading {
+    background-color: #fbfde8;
+    border: 1px solid #f7f8b0;
+}
