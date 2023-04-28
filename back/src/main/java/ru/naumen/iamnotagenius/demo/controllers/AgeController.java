@@ -49,7 +49,6 @@ public class AgeController {
     private Long getAgeFromAgify(String name) {
         var response = restTemplate.getForEntity("https://api.agify.io/?name={name}", AgifyResponse.class, name); 
         var body = response.getBody();
-        System.out.println(body);
         if (body.getAge() == null) {
             return 0L;
         }
