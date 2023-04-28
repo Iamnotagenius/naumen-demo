@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { AgeModel } from '../ageModel';
 import { BackBindingService } from '../back-binding.service';
+import { catchError, of, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-age-form',
@@ -15,20 +16,29 @@ export class AgeFormComponent {
 
   model?: AgeModel
   input = ""
-  emptySubmit = false
+  error?: string
   awaiting = false
   onSubmit() {
-    this.emptySubmit = this.input.length == 0
-    if (this.emptySubmit) {
+    if (this.input.length == 0) {
+      this.error = "Name required"
       return
     }
     this.awaiting = true
     this.backBinding.getAge(this.input)
-      .subscribe((data: AgeModel) => {
-        this.model = { ...data }
-        this.awaiting = false
-        this.nameRequested.emit(data)
-      }
-    )
+      .pipe(
+        timeout(20000)
+      )
+      .subscribe({
+        next: (data) => {
+          this.model = { ...data }
+          this.awaiting = false
+          this.error = undefined
+          this.nameRequested.emit(data)
+        },
+        error: (err: Error) => {
+          this.error = err.message
+          this.awaiting = false
+        }
+      })
   }
 }

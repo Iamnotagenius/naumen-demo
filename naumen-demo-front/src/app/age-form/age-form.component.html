@@ -6,8 +6,8 @@
     </div>
     <button type="submit" class="btn btn-success">Request</button>
 </form>
-<p *ngIf="model && !awaiting && !emptySubmit" class="output">
+<p *ngIf="model && !awaiting && !error" class="output">
     {{ model.name }} is <b>{{ model.age }}</b> and was requested {{ model.requestCount }} time<ng-container *ngIf="model.requestCount > 1">s</ng-container>.
 </p>
 <p *ngIf="awaiting" class="output loading">Loading...</p>
-<p *ngIf="!awaiting && emptySubmit" class="output error">Name required</p>
+<p *ngIf="!awaiting && error" class="output error">{{ error }}</p>

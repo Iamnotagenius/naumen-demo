@@ -26,14 +26,20 @@ export class BackBindingService {
     return this.http.get<AgeModel>(`${host}/oldest`, {
       observe: 'body',
       responseType: 'json'
-    })
+    }).pipe(
+      catchError(this.handleError)
+    )
+
   }
 
   getAll(): Observable<AgeModel[]> {
     return this.http.get<AgeModel[]>(`${host}/`, {
       observe: 'body',
       responseType: 'json'
-    })
+    }).pipe(
+      catchError(this.handleError)
+    )
+
   }
 
   private handleError(error: HttpErrorResponse) {
