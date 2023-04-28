@@ -15,7 +15,7 @@ export class AgeFormComponent {
 
   model?: AgeModel
   input = ""
-  emptySubmit = true
+  emptySubmit = false
   awaiting = false
   onSubmit() {
     this.emptySubmit = this.input.length == 0

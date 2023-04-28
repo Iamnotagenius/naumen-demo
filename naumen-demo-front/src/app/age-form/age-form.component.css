@@ -11,3 +11,8 @@
     background-color: #fbfde8;
     border: 1px solid #f7f8b0;
 }
+
+.output.error {
+    background-color: #fde8ea;
+    border: 1px solid #f8b0b6;
+}
