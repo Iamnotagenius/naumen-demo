@@ -4,25 +4,21 @@ import { AgeFormComponent } from './age-form.component';
 import { BackBindingService } from '../back-binding.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Observable } from 'rxjs';
+import { of, NEVER } from 'rxjs';
 
 let successfullServiceStub: Partial<BackBindingService> = {
   getAge(name) {
-    return new Observable(subscriber => {
-      subscriber.next({
-        name: name,
-        age: 12,
-        requestCount: 1
-      })
+    return of({
+      name: name,
+      age: 12,
+      requestCount: 1
     })
   }
 }
 
 let neverServiceStub: Partial<BackBindingService> = {
   getAge(name) {
-    return new Observable(subscriber => {
-      subscriber.complete()
-    })
+    return NEVER
   }
 }
 
