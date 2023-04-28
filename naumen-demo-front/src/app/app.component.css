@@ -17,6 +17,7 @@
     float: right;
 }
 
-.nav > li > a:hover {
+.nav > li > a:hover,
+.nav > li > a:focus {
     background-color: #3079b4;
 }
