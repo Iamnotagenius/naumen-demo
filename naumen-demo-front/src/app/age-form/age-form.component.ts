@@ -13,11 +13,7 @@ export class AgeFormComponent {
 
   @Output() nameRequested = new EventEmitter<AgeModel>();
 
-  model?: AgeModel = {
-    age: 10,
-    name: "Test",
-    requestCount: 6
-  }
+  model?: AgeModel
   input = ""
   emptySubmit = true
   awaiting = false
